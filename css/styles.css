@@ -134,24 +134,36 @@ a {
 
 /* TELA DE TAREFAS */
 .header-user {
-    display: flex;
-    justify-content: space-between;
+    display: flex;    
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 5px;
+}
+
+.header-user button {
+    height: 32px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+.header-user .filter {
+    width: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-user .filter img {
+    width: 40px;
+    height: 32px;
 }
 .header-user .button-user {
-    cursor: pointer;
-    border-radius: 4px;
-    background-color: #4FB3B6;
     height: 32px;
-    padding: 10px 20px;
     display: flex;
     align-items: center;
-    color: white;
+    justify-content: center;
+    background-color: #4FB3B6;
 }
-.header-user img {
-    cursor: pointer;
-}
+
 .box-tasks {
     height: 90%;
     width: 70%;
