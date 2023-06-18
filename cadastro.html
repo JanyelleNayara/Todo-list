@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/cadastro.js" defer></script>
     <title>Cadastro</title>
   </head>
 
@@ -27,40 +28,53 @@
           </a>
         </div>
         <div class="headerButton">
-          <a href="index.html" class="button-login">Entrar</a>
-          <a href="cadastro.html" class="button-cadastro">Cadastre-se</a>
+          <!-- <a href="index.html" class="button-login">Entrar</a>
+          <a href="cadastro.html" class="button-cadastro">Cadastre-se</a> -->
         </div>
       </header>
       <div class="box">
         <div>
-          <form class="form-box">
+          <form id="form-cadastro" class="form-box">
             <h1 class="tittle">Cadastre-se gratuitamente no TOODOO</h1>
             <h2 class="subtittle">
               Faça seu cadastro e comece a gerenciar suas tarefas agora mesmo
             </h2>
+            <span id="msg-cadastro" class="msg"></span>
             <div class="form-control">
               <input
-                type="text"
-                placeholder="Seu primeiro nome ou apelido"
-                class="input"
+              id="cad-name"
+              type="text"
+              placeholder="Seu primeiro nome ou apelido"
+              class="input"
               />
+              <span id="label-cad-name" class="msg"></span>
+
               <input
+                id="cad-email"
                 type="email"
                 placeholder="Seu melhor e-mail"
                 class="input"
               />
+              <span id="label-cad-email" class="msg"></span>
+
               <input
+                id="cad-senha"
                 type="password"
                 placeholder="Crie uma senha"
                 class="input"
               />
+              <span id="label-cad-senha" class="msg"></span>
+
               <input
+                id="cad-confirm-senha"
                 type="password"
                 placeholder="Confirme sua senha"
                 class="input"
               />
+              <span id="label-cad-confirm-senha" class="msg"></span>
+
             </div>
-            <button type="submit">Cadastrar</button>
+            <button id="button-cadastro">Cadastrar</button>
             <p class="a-cadastrar">
               Já tem uma conta? <a href="index.html"> Faça login!</a>
             </p>

@@ -18,6 +18,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script src="js/tarefas.js" defer ></script>
     <title>Lista de tarefas</title>
   </head>
 
@@ -34,8 +35,11 @@
           </a>
         </div>
         <div class="header-user">
-          <button class="filter"><img src="assets/filter.svg" alt="filter" /></button>
-          <button class="button-user"><span>Janyelle Nayara</span></button>
+          <!-- <button class="filter"><img src="assets/filter.svg" alt="filter" /></button> -->
+          <span id="logado" class="button-user"></span>
+          <button onclick="logout()" id="logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
         </div>
       </header>
       <div class="box-tasks">

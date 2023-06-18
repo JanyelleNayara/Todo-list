@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <script src=""></script>
+    <script src="js/script.js" defer></script>
     <title>TOODOO</title>
   </head>
 
@@ -28,23 +28,34 @@
           </a>
         </div>
         <div class="headerButton">
-          <a href="index.html" class="button-login">Entrar</a>
-          <a href="cadastro.html" class="button-cadastro">Cadastre-se</a>
+          <!-- <a href="index.html" class="button-login">Entrar</a>
+          <a href="cadastro.html" class="button-cadastro">Cadastre-se</a> -->
         </div>
       </header>
       <div class="box">
         <div>
-          <form class="form-box">
+          <form id="form-login" class="form-box">
             <h1 class="tittle">Faça login ou cadastre-se em segundos</h1>
             <h2 class="subtittle">
               Use seu e-mail para acessar a sua lista de tarefas ou crie sua
               conta.
             </h2>
+            <span id="msg-login" class="msg-login"></span>
             <div class="form-control">
-              <input type="email" placeholder="E-mail" class="input" />
-              <input type="password" placeholder="Senha" class="input" />
+              <input
+                id="login-email"
+                type="email"
+                placeholder="E-mail"
+                class="input"
+              />
+              <input
+                id="login-password"
+                type="password"
+                placeholder="Senha"
+                class="input"
+              />
             </div>
-            <button type="submit">Entrar</button>
+            <button type="submit" >Entrar</button>
             <a href="esqueci-senha.html" class="esqueci-senha"
               ><p>Esqueci minha senha</p></a
             >
