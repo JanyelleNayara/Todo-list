@@ -72,22 +72,19 @@ cadConfirmSenha.addEventListener("keyup", () => {
 buttonCadastro.addEventListener("click", (e) => {
   e.preventDefault();
   if (cadNomeValid && cadEmailValid && cadSenhaValid && cadConfirmSenhaValid) {
-
-    let userCadastro = JSON.parse(localStorage.getItem('userCadastro') || '[]')
-    userCadastro.push(
-      {
-        nome: cadNome.value,
-        email: cadEmail.value,
-        senha: cadSenha.value
-      }
-    )
-    localStorage.setItem('userCadastro',JSON.stringify(userCadastro));
+    let userCadastro = JSON.parse(localStorage.getItem("userCadastro") || "[]");
+    userCadastro.push({
+      nome: cadNome.value,
+      email: cadEmail.value,
+      senha: cadSenha.value,
+    });
+    localStorage.setItem("userCadastro", JSON.stringify(userCadastro));
 
     msgCadastro.setAttribute("style", "display: block; color: green");
     msgCadastro.innerHTML = "Dados cadastrados com sucesso";
-    
+
     setTimeout(() => {
-      window.location.href = "../tarefas.html";
+      window.location.href = "../index.html";
     }, 1500);
   } else {
     msgCadastro.setAttribute("style", "display: block");
