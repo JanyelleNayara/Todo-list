@@ -18,7 +18,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="js/tarefas.js" defer ></script>
+    <script src="js/tarefas.js" defer></script>
     <title>Lista de tarefas</title>
   </head>
 
@@ -26,7 +26,7 @@
     <main class="container">
       <header class="header">
         <div>
-          <a href="index.html">
+          <a href="#">
             <img
               class="imgLogo"
               src="assets/TOODOO LOGO-1.png"
@@ -35,42 +35,25 @@
           </a>
         </div>
         <div class="header-user">
-          <!-- <button class="filter"><img src="assets/filter.svg" alt="filter" /></button> -->
           <span id="logado" class="button-user"></span>
           <button onclick="logout()" id="logout">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </button>
         </div>
       </header>
+
       <div class="box-tasks">
-        <div class="card">
-          <input type="checkbox" name="task" data-i="task-1" />
-          <span class="task-item">Tarefa 1</span>
-          <button value="X"><i class="fa-solid fa-trash-can"></i></button>
-        </div>
-
-        <div class="card">
-          <input type="checkbox" name="task" data-i="task-2" />
-          <span class="task-item">Tarefa 2</span>
-          <button value="X"><i class="fa-solid fa-trash-can"></i></button>
-        </div>
-
-        <div class="card">
-          <input type="checkbox" name="task" data-i="task-3" />
-          <span class="task-item">Tarefa 3</span>
-          <button value="X"><i class="fa-solid fa-trash-can"></i></button>
-        </div>
-
-        <div class="card">
-          <input type="checkbox" name="task" data-i="task-4" />
-          <span class="task-item">Tarefa 4</span>
-          <button value="X"><i class="fa-solid fa-trash-can"></i></button>
-        </div>
-
         <div class="new-task">
-          <button value="X"><i class="fa-solid fa-plus"></i></button>
-          <input type="text" placeholder="Digite sua tarefa..." />
+          <input
+            id="task-content"
+            type="text"
+            placeholder="Digite sua tarefa..."
+          />
+          <button class="add-task" onclick="addTask()">
+            <i class="fa-solid fa-circle-plus"></i>
+          </button>
         </div>
+        <ul class="list-task" id="list"></ul>
       </div>
     </main>
   </body>
