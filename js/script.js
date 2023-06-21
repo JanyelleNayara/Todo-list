@@ -1,4 +1,5 @@
 let formLogin = document.querySelector('#form-login')
+console.log(formLogin)
 
 formLogin.addEventListener('submit', function (e){
   e.preventDefault();
@@ -13,6 +14,11 @@ formLogin.addEventListener('submit', function (e){
     senha: ''
   }
 
+  if(loginEmail.value == '' || loginSenha.value == '') {
+    msgLogin.setAttribute('style', 'color: red; display: block')
+    msgLogin.innerHTML = "Preencha os dados corretamente"
+  }
+
   userCadastro = JSON.parse(localStorage.getItem('userCadastro'))
 
   userCadastro.forEach((item) => {    
@@ -25,10 +31,7 @@ formLogin.addEventListener('submit', function (e){
     }    
   })
   
-  if (loginEmail.value === '' || loginSenha.value === '') {
-    console.log('preencha todos os dados')
-    
-  }else if(loginEmail.value == userValid.email && loginSenha.value == userValid.senha) {
+ if(loginEmail.value == userValid.email && loginSenha.value == userValid.senha) {
     console.log('certinho')
     msgLogin.setAttribute('style', 'color: green; display: block')
     msgLogin.innerHTML = "Logado com sucesso"
