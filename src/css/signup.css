@@ -1,0 +1,164 @@
+:root {
+  --bg-primary-color: linear-gradient(90deg, #02AAB0 0%, #00CDAC 100%);
+  --bg-second-color: #02AAB0;
+
+  --primary-color: #373435;
+  --second-color: #fff;
+  --terciary-color: #CE1C2A;
+
+  font-size: 62.5%;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  background: var(--bg-primary-color);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  max-height: 10rem;
+  padding: 2rem 5rem;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  align-self: center;
+}
+footer {
+  height: 5%;
+  max-height: 4rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+footer span {
+  color: var(--terciary-color);
+}
+
+a {
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+input {
+  border-radius: 0.4rem;
+  border: none;
+  padding: 1rem;
+  outline: none;
+}
+button {
+  cursor: pointer;
+  border-radius: 0.4rem;
+  border: none;
+}
+.imgLogo {
+  width: auto;
+  height: 5rem;
+}
+.container-signup {
+  margin-top: 10rem;
+  max-height: 50rem;
+  max-width: 35rem;
+  width: 70%;
+  color: #373435;
+}
+.container-signup .tittle {
+  font-size: 2rem;
+}
+
+.container-signup .subtittle {
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 1.2rem 0;
+}
+
+.form-signup{
+  display: flex;
+  flex-direction: column; 
+  background-color: var(--second-color);
+  box-shadow: 3px 3px 1px 0px #00000060;
+  padding: 3rem;
+  border-radius: .5rem;
+}
+
+.form-control {
+  position: relative;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+.form-control input {
+  width: 100%;
+  padding: .5rem .5rem;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #00CDAC;
+  min-width: 18rem;
+  font-size: 1.6rem;
+  transition: all .3s ease-out;
+  border-radius: 0;
+}
+.form-control input:focus {
+  border-bottom: 2px solid #045c4d;
+}
+
+.form-control label {
+  color: #373435;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1.3rem;
+  transition: all .3s ease-out;
+}
+
+.form-control input:focus + label,
+.form-control input:valid + label{
+  font-size: 1.1rem;
+  margin-top: 0;  
+  color: #373435;
+  font-weight: 600;
+}
+
+.fa-regular {
+  color: var(--primary-color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.2rem;
+  margin: 1.8rem 1rem 0 0;
+  cursor: pointer;
+}
+.fa-eye {
+  display: none;
+}
+#button-signup {
+    margin: 10px 0 18px 0;
+    background-color: var(--bg-second-color);
+    color: #fff;
+    padding: 1.2rem;
+}
+.a-signup {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.erro {
+  color: var(--terciary-color);
+}

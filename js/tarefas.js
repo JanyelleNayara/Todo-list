@@ -1,3 +1,4 @@
+// validar login assim que acessa a plataforma
 // usuário
 let userLogado = JSON.parse(localStorage.getItem("userLogado"));
 let logado = document.querySelector("#logado");
@@ -22,15 +23,14 @@ let tasks = [];
 const lista = document.querySelector("#list");
 // PEGAR OS DADOS DO INPUT
 function addTask() {
-  if (taskContent.value){
-
+  if (taskContent.value) {
     tasks.push({
       task: taskContent.value,
       done: false,
       user: userLogado.nome,
     });
   } else {
-    alert('Digite uma tarefa válida')
+    alert("Digite uma tarefa válida");
   }
   taskContent.value = "";
   saveTaskLocalStorage();

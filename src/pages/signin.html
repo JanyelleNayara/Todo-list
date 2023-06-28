@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/signin.css" />
+    <script src="../js/signin.js" defer></script>
+    <link
+      rel="shortcut icon"
+      href="../assets/done_all.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Signin</title>
+  </head>
+  <body>
+    <header>
+      <img class="imgLogo" src="../assets/TOODOO LOGO-1.png" alt="Logo.png" />
+    </header>
+    <main class="container-signin">
+      <form id="form-signin" class="form-signin">
+        <h1 class="tittle">Faça login ou cadastre-se em segundos</h1>
+        <h2 class="subtittle">
+          Use seu e-mail para acessar a sua lista de tarefas ou crie sua conta.
+        </h2>
+        <span id="msg-signin" class="msg"></span>
+
+        <div class="form-control" id="form-email">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder=""
+            class="input"
+            required
+          />
+          <label for="email" id="label-email" class="msg">E-mail</label>
+        </div>
+        <div class="form-control">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder=""
+            class="input"
+            required
+          />
+          <label for="password" id="label-password" class="msg">Senha</label>
+          <i class="fa-regular fa-eye"></i>
+          <i class="fa-regular fa-eye-slash"></i>
+        </div>
+
+        <button id="button-signin">Entrar</button>
+        <p class="a-signin">
+          Ainda não tem uma conta?
+          <a href="../pages/signup.html"> Cadastre-se!</a>
+        </p>
+      </form>
+    </main>
+    <footer>
+      Feito com <span>❤</span> por
+      <a href="#" target="_blank">Janyelle Nayara</a>
+    </footer>
+  </body>
+</html>
