@@ -50,6 +50,10 @@ button {
   border-radius: 0.4rem;
   border: none;
 }
+.fa-regular, .fa-solid {
+  height: auto;
+  width: 2rem;
+}
 .imgLogo {
   width: auto;
   height: 5rem;
@@ -91,7 +95,11 @@ header {
   background-color: transparent;
   border: 1px solid  white;
   width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 .container {
   margin-top: 10rem;
@@ -139,7 +147,7 @@ header {
   min-width: 70rem;
   margin-top: 1rem;
   overflow: hidden;
-  padding: 0 1rem;
+  padding: 0 2rem;
   cursor: pointer;
 }
 .card .task {
@@ -149,7 +157,7 @@ header {
   overflow: hidden;
 }
 .card i {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--bg-second-color);
 }
 

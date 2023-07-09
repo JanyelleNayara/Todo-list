@@ -72,7 +72,8 @@ cadConfirmSenha.addEventListener("keyup", () => {
 buttonCadastro.addEventListener("click", (e) => {
   e.preventDefault();
   if (cadNomeValid && cadEmailValid && cadSenhaValid && cadConfirmSenhaValid) {
-    let userCadastro = JSON.parse(localStorage.getItem("userCadastro") || "[]");
+    let userCadastro = 
+    JSON.parse(localStorage.getItem("userCadastro") || "[]");
     userCadastro.push({
       nome: cadNome.value,
       email: cadEmail.value,

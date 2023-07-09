@@ -1,81 +1,108 @@
 // pegar os dados formulário
-const form = document.querySelector("#form-signup");
-const buttonSignup = document.querySelector("#button-signup");
-
-let username = document.querySelector("#cad-username");
-let labelUsername = document.querySelector("#label-cad-username");
-
-let email = document.querySelector("#cad-email");
-let labelEmail = document.querySelector("#label-cad-email");
-
-let password = document.querySelector("#cad-password");
-let labelPassword = document.querySelector("#label-cad-password");
-
-let confirmPassword = document.querySelector("#cad-confirm-password");
-let labelConfirmPassword = document.querySelector(
-  "#label-cad-confirm-password"
-);
-
-// validar username
-function validateUsername() {
-  if (username.value.length < 3) {
-    labelUsername.setAttribute("style", "color: red");
-    username.setAttribute("style", "border-bottom: 2px solid red");
-    labelUsername.innerHTML = "O nome precisa ter no mínimo 3 caracteres";
-  } else {
-    username.setAttribute("style", "border-bottom: 2px solid green");
-    labelUsername.setAttribute("style", "color: green");
-    labelUsername.innerHTML = "Nome";
-  }
-}
-// validar email
-function validateEmail() {
-  const regex =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (!regex.test(email.value)) {
-    labelEmail.setAttribute("style", "color: red");
-    email.setAttribute("style", "border-bottom: 2px solid red");
-    labelEmail.innerHTML = "Preencha o email corretamente";
-  } else {
-    email.setAttribute("style", "border-bottom: 2px solid green");
-    labelEmail.setAttribute("style", "color: green");
-    labelEmail.innerHTML = "E-mail";
-
-  }
-}
-// validar senha
-function validatePassword() {
-  if (password.value.length < 8) {
-    labelPassword.setAttribute("style", "color: red");
-    password.setAttribute("style", "border-bottom: 2px solid red");
-    labelPassword.innerHTML = "A senha precisa ter no mínimo 8 caracteres";
-  } else {
-    password.setAttribute("style", "border-bottom: 2px solid green");
-    labelPassword.setAttribute("style", "color: green");
-    labelPassword.innerHTML = "Senha";
-  }
-}
-
-// validar confirmasenha
-function validateConfirmPassword() {
-  if (
-    confirmPassword.value.length < 8 ||
-    confirmPassword.value !== password.value
-  ) {
-    labelConfirmPassword.setAttribute("style", "color: red");
-    confirmPassword.setAttribute("style", "border-bottom: 2px solid red");
-    labelConfirmPassword.innerHTML = "As senhas não coincidem";
-  } else {
-    confirmPassword.setAttribute("style", "border-bottom: 2px solid green");
-    labelConfirmPassword.setAttribute("style", "color: green");
-    labelConfirmPassword.innerHTML = "Confirme sua Senha";
-  }
-}
+const form = document.querySelector(".form-signup");
+const username = document.querySelector("#cad-username");
+const email = document.querySelector("#cad-email");
+const password = document.querySelector("#cad-password");
+const confirmPassword = document.querySelector("#cad-confirm-password");
+const msgAlert = document.querySelector("#form-msg");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  validateForm();
+});
+function validateinputs() {
   validateUsername();
   validateEmail();
   validatePassword();
   validateConfirmPassword();
-});
+}
+function validateForm() {
+  const formsControl = document.querySelectorAll(".form-control");
+
+  let userCadastro = JSON.parse(localStorage.getItem("userCadastro") || "[]");
+  userCadastro.push({
+    username: username.value,
+    email: email.value,
+    password: password.value,
+  });
+
+  const formIsValid = [...formsControl].every((formsControl) => {
+    return formsControl.className === "form-control success";
+  });
+
+  if (formIsValid) {
+    msgAlert.setAttribute("style", "color: #2ecc71");
+    msgAlert.innerHTML = "Enviando dados";
+    localStorage.setItem("userCadastro", JSON.stringify(userCadastro));
+    setTimeout(() => {
+      window.location.href = "./signin.html";
+    }, 1500);
+  } else {
+    msgAlert.innerHTML = "Preencha todos os campos corretamente!";
+  }
+}
+username.addEventListener("input", validateUsername);
+email.addEventListener("input", validateEmail);
+password.addEventListener("input", validatePassword);
+confirmPassword.addEventListener("input", validateConfirmPassword);
+
+function validateUsername() {
+  const usernameValue = username.value;
+
+  if (usernameValue.length < 3) {
+    setError(username, "o usuário precisa ter no mínimo 3 caracteres");
+  } else {
+    setSuccess(username, "Nome");
+  }
+}
+
+function validateEmail() {
+  const emailValue = email.value;
+
+  if (emailValue === "") {
+    setError(email, "O e-mail é obrigatório");
+  } else if (!emailIsValid(emailValue)) {
+    setError(email, "E-mail inválido");
+  } else {
+    setSuccess(email, "Email");
+  }
+}
+function validatePassword() {
+  const passwordValue = password.value;
+
+  if (passwordValue.length < 8) {
+    setError(password, "a senha precisa ter no mínimo 8 caracteres");
+  } else {
+    setSuccess(password, "Senha");
+  }
+}
+function validateConfirmPassword() {
+  const confirmPasswordValue = confirmPassword.value;
+  const passwordValue = password.value;
+
+  if (passwordValue !== confirmPasswordValue) {
+    setError(confirmPassword, "As senhas não conferem");
+  } else {
+    setSuccess(confirmPassword, "Confirme sua senha");
+  }
+}
+
+function setError(input, msg) {
+  const formControl = input.parentElement;
+  const label = formControl.querySelector("label");
+  label.innerText = msg;
+  formControl.className = "form-control error";
+}
+
+function setSuccess(input, msg) {
+  const formControl = input.parentElement;
+  const label = formControl.querySelector("label");
+  formControl.className = "form-control success";
+  label.innerText = msg;
+}
+
+function emailIsValid(email) {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email
+  );
+}

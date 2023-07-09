@@ -30,8 +30,7 @@
       <header class="header">
         <img class="imgLogo" src="../assets/TOODOO LOGO-1.png" alt="Logo.png" />
         <div class="header-user">
-     
-          <span id="logado" class="button-user"></span>
+          <span id="logado" class="button-user">Olá, visitante</span>
           <button onclick="logout()" id="logout">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </button>
@@ -52,20 +51,9 @@
 
         <ul class="list-task" id="list">
           <li class="card">
-            <i class="fa-solid fa-circle-plus"></i>
-            <span class="task">teste</span>
-            <i class="fa-solid fa-circle-plus"></i>
-          </li>
-
-          <li class="card">
-            <i class="fa-solid fa-circle-plus"></i>
-            <span class="task">teste</span>
-            <i class="fa-solid fa-circle-plus"></i>
-          </li>
-          <li class="card">
-            <i class="fa-solid fa-circle-plus"></i>
-            <span class="task">teste</span>
-            <i class="fa-solid fa-circle-plus"></i>
+            <i class="fa-regular fa-circle-check" onclick="checkTask()"></i>
+            <span class="task" onclick="checkTask()">teste</span>
+            <i class="fa-regular fa-trash-can" onclick="removeTask()"></i>
           </li>
         </ul>
       </main>

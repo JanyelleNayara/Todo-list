@@ -4,7 +4,8 @@
 
   --primary-color: #373435;
   --second-color: #fff;
-  --terciary-color: #CE1C2A;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
 
   font-size: 62.5%;
 }
@@ -32,21 +33,7 @@ header {
   height: 10%;
   max-height: 10rem;
   padding: 2rem 5rem;
-}
-main {
-  display: flex;
-  flex-direction: column;
-  height: 85%;
-  align-self: center;
-}
-footer {
-  height: 5%;
-  max-height: 4rem;
-  text-align: center;
-  font-size: 1.4rem;
-}
-footer span {
-  color: var(--terciary-color);
+  margin-bottom: 2rem;
 }
 
 a {
@@ -57,48 +44,61 @@ a {
 input {
   border-radius: 0.4rem;
   border: none;
-  padding: 1rem;
   outline: none;
 }
 button {
-  cursor: pointer;
   border-radius: 0.4rem;
+  cursor: pointer;
   border: none;
 }
 .imgLogo {
   width: auto;
   height: 5rem;
 }
-.container-signin {
+.container {
   margin-top: 5rem;
+  width: 95%;
+  height: auto;
   max-width: 40rem;
-  width: 70%;
-  color: #373435;
+  margin: auto;
 }
-.container-signin .tittle {
-  font-size: 2rem;
-}
-
-.container-signin .subtittle {
-  font-weight: 400;
-  font-size: 1.3rem;
-  margin: 1.2rem 0;
-}
-
 .form-signin{
+  padding: 3rem;
   display: flex;
   flex-direction: column; 
+  text-align: center;
   background-color: var(--second-color);
-  box-shadow: 3px 3px 1px 0px #00000060;
-  padding: 3rem;
-  border-radius: 5%;
+  border-radius: .5rem;
+}
+.container .header-form {
+  background-color: #cccccc50;
+  text-align: center;
+  padding: 2rem;
+}
+.container .header-form h1{
+  font-size: 2rem;
+  font-weight: 500;
+  color: #373435;
+}
+.form-signin span{
+  font-size: 1.4rem;
+  color: #e74c3c;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem 0;
 }
 
 .form-control {
   position: relative;
   padding-top: 1rem;
-  margin-bottom: 6%;
-  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+.form-control i {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  visibility: hidden;
 }
 .form-control input {
   width: 100%;
@@ -129,31 +129,51 @@ button {
 
 .form-control input:focus + label,
 .form-control input:valid + label{
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   margin-top: 0;  
   color: #373435;
-  font-weight: 600;
+  font-weight: 500;
 }
 
-.fa-regular {
-  color: #373435;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 1.2rem;
-  margin: 1.8rem 1rem 0 0;
-  cursor: pointer;
-}
-.fa-eye {
-  display: none;
-}
-#button-signin {
-    margin: 10px 0 18px 0;
-    background-color: var(--bg-second-color);
-    color: #fff;
-    padding: 1.2rem;
+button {
+  background-color: var(--bg-second-color);
+  color: #fff;
+  padding: 1.5rem 5rem;
+  margin: 1rem 0;
 }
 .a-signin {
   text-align: center;
   font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
+
+
+/* CSS de sucesso e erro */
+.form-control.error input {
+  border-bottom-color: var(--error-color);
+}
+.form-control.error input:focus + label,
+.form-control.error input:valid + label,
+.form-control.error label{
+  color: var(--error-color);
+  font-size: 1.1rem;
+}
+.form-control.error .fa-exclamation-circle {
+  visibility: visible;
+  color: var(--error-color);
+}
+
+.form-control .success input {
+  border-bottom-color: var(--success-color);
+}
+.form-control.success input:focus + label,
+.form-control.success input:valid + label,
+.form-control.success label{
+  color: var(--success-color);
+  font-size: 1.1rem;
+}
+.form-control.success .fa-check-circle {
+  visibility: visible;
+  color: var(--success-color);
 }
