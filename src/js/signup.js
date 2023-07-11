@@ -24,6 +24,7 @@ function validateForm() {
     username: username.value,
     email: email.value,
     password: password.value,
+    dataCadastro: new Date().toLocaleString(),
   });
 
   const formIsValid = [...formsControl].every((formsControl) => {

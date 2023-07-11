@@ -15,6 +15,7 @@ function validateLocalStorage() {
     email: "",
     password: "",
     username: "",
+    data: "",
   };
   // valida se os dados estão preenchidos
   if (loginEmail.value == "" || loginPassword.value == "") {
@@ -36,6 +37,7 @@ function validateLocalStorage() {
         email: item.email,
         password: item.password,
         username: item.username,
+        data: new Date().toLocaleString(),
       };
     }
   });

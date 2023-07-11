@@ -28,9 +28,13 @@
   <body>
     <div class="todo-root">
       <header class="header">
-        <img class="imgLogo" src="../assets/TOODOO LOGO-1.png" alt="Logo.png" />
+        <img
+          class="imgLogo"
+          src="/src/assets/TOODOO LOGO-1.png"
+          alt="Logo.png"
+        />
         <div class="header-user">
-          <span id="logado" class="button-user">Olá, visitante</span>
+          <span id="logado" class="button-user"></span>
           <button onclick="logout()" id="logout">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </button>
@@ -49,18 +53,23 @@
           </button>
         </div>
 
-        <ul class="list-task" id="list">
-          <li class="card">
-            <i class="fa-regular fa-circle-check" onclick="checkTask()"></i>
-            <span class="task" onclick="checkTask()">teste</span>
-            <i class="fa-regular fa-trash-can" onclick="removeTask()"></i>
-          </li>
-        </ul>
+        <ul class="list-task" id="task-list"></ul>
       </main>
       <footer>
         Feito com <span>❤</span> por
         <a href="#" target="_blank">Janyelle Nayara</a>
       </footer>
+    </div>
+    <div class="loading">
+      <div class="loading-content">
+        <h1>TOODOO</h1>
+        <p>Ei, você precisa estar logado para acessar!</p>
+        <p>Faça login ou cadastre-se na plataforma</p>
+        <div class="button-loading">
+          <a href="src/pages/signin.html">Entrar</a>
+          <a href="src/pagessignup.html">Cadastrar</a>
+        </div>
+      </div>
     </div>
   </body>
 </html>
