@@ -1,0 +1,192 @@
+:root {
+  --bg-primary-color: linear-gradient(90deg, #02AAB0 0%, #00CDAC 100%);
+  --bg-second-color: #02AAB0;
+
+  --primary-color: #373435;
+  --second-color: #fff;
+  --success-color: #2ecc71;
+  --error-color: #e74c3c;
+
+  font-size: 62.5%;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  background: var(--bg-primary-color);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  max-height: 10rem;
+  padding: 2rem 5rem;
+  margin-bottom: 2rem;
+}
+
+a {
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+input {
+  border-radius: 0.4rem;
+  border: none;
+  outline: none;
+}
+button {
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: none;
+}
+.imgLogo {
+  width: auto;
+  height: 5rem;
+}
+.container {
+  margin-top: 5rem;
+  width: 95%;
+  height: auto;
+  max-width: 40rem;
+  margin: auto;
+}
+.form-signin{
+  padding: 3rem;
+  display: flex;
+  flex-direction: column; 
+  text-align: center;
+  background-color: var(--second-color);
+  border-radius: .5rem;
+}
+.container .header-form {
+  background-color: #cccccc50;
+  text-align: center;
+  padding: 2rem;
+}
+.container .header-form h1{
+  font-size: 2rem;
+  font-weight: 500;
+  color: #373435;
+}
+.form-signin span{
+  font-size: 1.4rem;
+  color: #e74c3c;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.form-control {
+  position: relative;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+}
+.form-control i {
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+  visibility: hidden;
+}
+.form-control input {
+  width: 100%;
+  padding: .5rem .5rem;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #00CDAC;
+  min-width: 18rem;
+  font-size: 1.6rem;
+  transition: all .3s ease-out;
+  border-radius: 0;
+}
+.form-control input:focus {
+  border-bottom: 2px solid #045c4d;
+}
+
+.form-control label {
+  color: #373435;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1.3rem;
+  transition: all .3s ease-out;
+}
+
+.form-control input:focus + label,
+.form-control input:valid + label{
+  font-size: 1.4rem;
+  margin-top: 0;  
+  color: #373435;
+  font-weight: 500;
+}
+
+button {
+  background-color: var(--bg-second-color);
+  color: #fff;
+  padding: 1.5rem 5rem;
+  margin: 1rem 0;
+}
+.a-signin {
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
+
+
+/* CSS de sucesso e erro */
+.form-control.error input {
+  border-bottom-color: var(--error-color);
+}
+.form-control.error input:focus + label,
+.form-control.error input:valid + label,
+.form-control.error label{
+  color: var(--error-color);
+  font-size: 1.1rem;
+}
+.form-control.error .fa-exclamation-circle {
+  visibility: visible;
+  color: var(--error-color);
+}
+
+.form-control .success input {
+  border-bottom-color: var(--success-color);
+}
+.form-control.success input:focus + label,
+.form-control.success input:valid + label,
+.form-control.success label{
+  color: var(--success-color);
+  font-size: 1.1rem;
+}
+.form-control.success .fa-check-circle {
+  visibility: visible;
+  color: var(--success-color);
+}
+
+
+/* VERSÃO MOBILE */
+
+@media screen and (max-width: 500px) {
+  body {
+    display: flex;
+    align-items: center;
+  }  
+  header {
+    margin-top: 50px;
+  }
+}

@@ -2,7 +2,6 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,55 +9,67 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/script.js" defer></script>
-    <title>TOODOO</title>
+    <link rel="stylesheet" href="src/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="src/js/index.js" defer></script>
+    <link
+      rel="shortcut icon"
+      href="src/assets/done_all.ico"
+      type="image/x-icon"
+    />
+    <title>Home</title>
   </head>
-
   <body>
-    <main class="container">
+    <div class="todo-root">
       <header class="header">
-        <div>
-          <a href="index.html">
-            <img
-              class="imgLogo"
-              src="assets/TOODOO LOGO-1.png"
-              alt="Logo.png"
-            />
-          </a>
+        <img
+          class="imgLogo"
+          src="/src/assets/TOODOO LOGO-1.png"
+          alt="Logo.png"
+        />
+        <div class="header-user">
+          <span id="logado" class="button-user"></span>
+          <button onclick="logout()" id="logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
         </div>
       </header>
 
-      <div class="box">
-        <div>
-          <form id="form-login" class="form-box">
-            <h1 class="tittle">Faça login ou cadastre-se em segundos</h1>
-            <h2 class="subtittle">
-              Use seu e-mail para acessar a sua lista de tarefas ou crie sua
-              conta.
-            </h2>
-            <span id="msg-login" class="msg-login"></span>
-            <div class="form-control">
-              <input
-                id="login-email"
-                type="email"
-                placeholder="E-mail"
-                class="input"
-              />
-              <input
-                id="login-password"
-                type="password"
-                placeholder="Senha"
-                class="input"
-              />
-            </div>
-            <button type="submit">Entrar</button>
-            <p class="a-cadastrar">
-              Não tem uma conta? <a href="cadastro.html"> Cadastre-se</a>
-            </p>
-          </form>
+      <main class="container">
+        <div class="new-task">
+          <input
+            id="task-content"
+            type="text"
+            placeholder="Digite sua tarefa..."
+          />
+          <button class="add-task" onclick="addTask()">
+            <i class="fa-solid fa-circle-plus"></i>
+          </button>
+        </div>
+
+        <ul class="list-task" id="task-list"></ul>
+      </main>
+      <footer>
+        Feito com <span>❤</span> por
+        <a href="#" target="_blank">Janyelle Nayara</a>
+      </footer>
+    </div>
+    <div class="loading">
+      <div class="loading-content">
+        <h1>TOODOO</h1>
+        <p>Ei, você precisa estar logado para acessar!</p>
+        <p>Faça login ou cadastre-se na plataforma</p>
+        <div class="button-loading">
+          <a href="src/pages/signin.html">Entrar</a>
+          <a href="src/pagessignup.html">Cadastrar</a>
         </div>
       </div>
-    </main>
+    </div>
   </body>
 </html>
