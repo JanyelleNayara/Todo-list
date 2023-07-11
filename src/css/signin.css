@@ -177,3 +177,16 @@ button {
   visibility: visible;
   color: var(--success-color);
 }
+
+
+/* VERSÃO MOBILE */
+
+@media screen and (max-width: 500px) {
+  body {
+    display: flex;
+    align-items: center;
+  }  
+  header {
+    margin-top: 50px;
+  }
+}

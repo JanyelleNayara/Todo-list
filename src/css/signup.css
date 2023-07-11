@@ -174,3 +174,17 @@ button {
   visibility: visible;
   color: var(--success-color);
 }
+
+
+/* VERSÃO MOBILE */
+
+@media screen and (max-width: 500px) {
+  header {
+    margin-top: 10px;
+    justify-content: center;
+  }
+  .container {
+    display: flex;
+    padding: 2rem;
+  }
+}

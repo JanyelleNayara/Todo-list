@@ -110,6 +110,7 @@ header {
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .new-task {
@@ -134,6 +135,7 @@ header {
 .list-task {
   margin-top: 10rem;
   display: block;
+  overflow-y: auto;
 }
 .card {
   border-radius: 0.4rem;
@@ -143,18 +145,21 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 5rem;
+  min-height: 4rem;
   min-width: 70rem;
   margin-top: 1rem;
   overflow: hidden;
   padding: 0 2rem;
   cursor: pointer;
+  flex-wrap: wrap;
 }
 .card .task {
   text-align: left;
   width: 80%;
   font-size: 1.6rem;
   overflow: hidden;
+  word-wrap: break-word;
+  padding: 1rem 0;
 }
 .card i {
   font-size: 2rem;
@@ -217,4 +222,71 @@ justify-content: center;
   padding: .8rem 2rem;
   color: var(--second-color);
   font-weight: 600;
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-bottom: 5rem;
+  }
+
+  .list-task {
+    max-height: calc(85% - 5rem);
+    overflow-y: auto;
+  }
+}
+/* Media Query para dispositivos com max-width: 500px */
+@media screen and (max-width: 500px) {
+  .header-user {
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .header-user .button-user {
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .header-user #logout {
+    font-size: 1.4rem;
+    width: 4rem;
+  }
+
+  .container {
+    margin-top: 10rem;
+    padding: 2rem;
+  }
+
+  .new-task {
+    position: static;
+    max-height: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    
+  }
+  
+  .new-task button {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+  .add-task i {
+    color: white;
+  }
+
+  .list-task {
+    margin-top: 5rem;
+  }
+
+  .card {
+    min-width: 100%;
+  }
+
+  .card .task {
+    width: 70%;
+  }
 }
