@@ -165,6 +165,20 @@ header {
   font-size: 2rem;
   color: var(--bg-second-color);
 }
+.card.done {
+  background-color: var(--primary-color);
+  opacity: .5;
+}
+.card.done span {
+  color: var(--second-color);
+  font-style: italic;
+  text-decoration: line-through;
+}
+.card.done i {
+  color: var(--second-color);
+  opacity: .5;
+  font-size: 1.4rem;
+}
 
 footer {
   height: 5%;
@@ -173,6 +187,7 @@ footer {
   font-size: 1.4rem;
   position: absolute;
   bottom: 0;
+  color: #ccc;
 }
 footer span {
   color: var(--terciary-color);
@@ -234,8 +249,11 @@ justify-content: center;
     overflow-y: auto;
   }
 }
+
+
+
 /* Media Query para dispositivos com max-width: 500px */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500) {
   .header-user {
     justify-content: flex-start;
     gap: 0.5rem;

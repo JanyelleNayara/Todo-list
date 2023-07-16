@@ -1,5 +1,7 @@
-// pegar os dados
 const loginForm = document.querySelector(".form-signin");
+const loginEmail = document.querySelector("#email");
+const loginPassword = document.querySelector("#password");
+const loginMsgAlert = document.querySelector("#form-msg");
 
 loginForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -7,53 +9,39 @@ loginForm.addEventListener("submit", (e) => {
 });
 
 function validateLocalStorage() {
-  const loginEmail = document.querySelector("#email");
-  const loginPassword = document.querySelector("#password");
-  const loginMsgAlert = document.querySelector("#form-msg");
-  let userCadastro = [];
-  let userValid = {
-    email: "",
-    password: "",
-    username: "",
-    data: "",
-  };
-  // valida se os dados estão preenchidos
-  if (loginEmail.value == "" || loginPassword.value == "") {
-    loginMsgAlert.innerHTML = "Preencha todos os campos corretamente!";
+  const userCadastro = JSON.parse(localStorage.getItem("userCadastro")) || [];
+
+  if (loginEmail.value === "" || loginPassword.value === "") {
+    loginMsgAlert.innerHTML =
+      "Por favor, preencha todos os dados corretamente!";
+    return;
   }
 
-  // busca os usuários cadastrados no localstorage
-  userCadastro = JSON.parse(localStorage.getItem("userCadastro"));
-  console.log(userCadastro);
+  let userValid = null;
 
-  // compara os dados informados com os dados no localstorage
-  userCadastro.forEach((item) => {
-    // se os dados forem compativeis, o objeto userValid é populado
-    if (
-      loginEmail.value === item.email &&
-      loginPassword.value === item.password
-    ) {
-      userValid = {
-        email: item.email,
-        password: item.password,
-        username: item.username,
-        data: new Date().toLocaleString(),
-      };
-    }
-  });
-  if (
-    loginEmail.value === userValid.email &&
-    loginPassword.value === userValid.password
-  ) {
-    loginMsgAlert.setAttribute("style", "color: #2ecc71");
-    loginMsgAlert.innerHTML = "Logado com sucesso";
-    let token = Math.random().toString(16).substring(2);
-    localStorage.setItem("token", token);
-    localStorage.setItem("userLogado", JSON.stringify(userValid));
-    setTimeout(() => {
-      window.location.href = "../../index.html";
-    }, 1500);
+  if (userCadastro.length === 0) {
+    loginMsgAlert.innerHTML = "Você não está cadastrado. Cadastre-se!";
+    window.location.href = "./signup.html";
   } else {
-    loginMsgAlert.innerHTML = "Preencha todos os campos corretamente!";
+    userCadastro.forEach((item) => {
+      if (
+        loginEmail.value === item.email &&
+        loginPassword.value === item.password
+      ) {
+        userValid = {
+          email: item.email,
+          password: item.password,
+          username: item.username,
+          data: new Date().toLocaleString(),
+        };
+        let token = Math.random().toString(16).substring(2);
+        localStorage.setItem("token", token);
+        localStorage.setItem("userLogado", JSON.stringify(userValid));
+        window.location.href = "../../index.html";
+      }
+    });
+    if (!userValid) {
+      loginMsgAlert.innerHTML = "Email ou senha incorretos. Tente novamente!";
+    }
   }
 }
