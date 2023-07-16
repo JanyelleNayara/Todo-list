@@ -1,4 +1,3 @@
-// verificar se existe um usuário logado
 let userLogado = JSON.parse(localStorage.getItem("userLogado"));
 let token = localStorage.getItem("token");
 let logado = document.querySelector("#logado");
@@ -6,30 +5,29 @@ let loading = document.querySelector(".loading");
 let index = document.querySelector(".todo-root");
 
 if (!userLogado || !token) {
-  index.setAttribute("style", 'display: none')
+  index.style.display = "none";
 } else {
-  loading.setAttribute("style", 'display: none')
+  loading.style.display = "none";
   logado.innerHTML = `Olá, ${userLogado.username}`;
 }
 
-// fazer logout e remover os userLogado e token do localstorage
 function logout() {
   localStorage.removeItem("userLogado");
   localStorage.removeItem("token");
   window.location.href = "./src/pages/signin.html";
 }
 
-// pegar dados
+
 const newTask = document.querySelector("#task-content");
 const taskList = document.querySelector("#task-list");
 let tasks = [];
-// adicionar task
 
-newTask.addEventListener('keydown', function(e) {
-  if (e.keyCode === 13){
-    addTask()
+
+newTask.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    addTask();
   }
-})
+});
 
 function addTask() {
   if (newTask.value) {
@@ -40,21 +38,21 @@ function addTask() {
       isDone: false,
     });
   } else {
-    alert("preencha uma tarefa");
+    alert("Preencha uma tarefa");
+    return;
   }
   newTask.value = "";
-  // mostrar em tela
   saveTaskLocalStorage();
   showTask();
 }
-// mostrar task
+
 function showTask() {
   let newCard = "";
 
   tasks.forEach((item, index) => {
     if (item.email == userLogado.email) {
       newCard += `
-      <li class='card ${item.isDone && 'done'}'>
+      <li class='card ${item.isDone ? "done" : ""}'>
         <i class="fa-regular fa-circle-check" onclick="checkTask(${index})"></i>    
         <span onclick='checkTask(${index})' class="task">${item.task}</span>
         <i class="fa-regular fa-trash-can" onclick="removeTask(${index})"></i>
@@ -85,10 +83,14 @@ function saveTaskLocalStorage() {
 
 // pegar as tarefas no localstorage
 function getTasks() {
-  const tasksLocalStorage = localStorage.getItem("tasks");
+  try {
+    const tasksLocalStorage = localStorage.getItem("tasks");
 
-  if (tasksLocalStorage) {
-    tasks = JSON.parse(tasksLocalStorage);
+    if (tasksLocalStorage) {
+      tasks = JSON.parse(tasksLocalStorage);
+    }
+  } catch (error) {
+    console.error("Erro ao obter tarefas do localStorage:", error);
   }
   showTask();
 }
